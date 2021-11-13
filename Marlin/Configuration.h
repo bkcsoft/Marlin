@@ -556,7 +556,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 300
+#define HEATER_0_MAXTEMP 285
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -604,9 +604,9 @@
     // #define DEFAULT_Kp  22.20
     // #define DEFAULT_Ki   1.08
     // #define DEFAULT_Kd 114.00
-    #define DEFAULT_Kp 28.74
-    #define DEFAULT_Ki  2.29
-    #define DEFAULT_Kd 90.10
+    #define DEFAULT_Kp 27.34
+    #define DEFAULT_Ki 2.56
+    #define DEFAULT_Kd 72.90
   #endif
 #endif // PIDTEMP
 
@@ -770,13 +770,13 @@
 // Specify here all the endstop connectors that are connected to any endstop or probe.
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
-//#define USE_XMIN_PLUG
+#define USE_XMIN_PLUG
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
 //#define USE_IMIN_PLUG
 //#define USE_JMIN_PLUG
 //#define USE_KMIN_PLUG
-#define USE_XMAX_PLUG
+// #define USE_XMAX_PLUG
 //#define USE_YMAX_PLUG
 //#define USE_ZMAX_PLUG
 //#define USE_IMAX_PLUG
@@ -920,14 +920,14 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 543.3 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 837 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 2, 45 }
+#define DEFAULT_MAX_FEEDRATE          { 1000, 1000, 2, 5 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -940,7 +940,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 7000, 7000, 25, 300 }
+#define DEFAULT_MAX_ACCELERATION      { 4500, 4500, 25, 300 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1352,7 +1352,7 @@
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
-#define X_HOME_DIR 1
+#define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 //#define I_HOME_DIR -1
@@ -1362,12 +1362,12 @@
 // @section machine
 
 // The size of the printable area
-#define X_BED_SIZE 205
-#define Y_BED_SIZE 190
+#define X_BED_SIZE 217
+#define Y_BED_SIZE 215
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 5
-#define Y_MIN_POS 5
+#define X_MIN_POS -5
+#define Y_MIN_POS -25
 #define Z_MIN_POS 0
 #define X_MAX_POS (X_BED_SIZE + X_MIN_POS)
 #define Y_MAX_POS (Y_BED_SIZE + Y_MIN_POS)
